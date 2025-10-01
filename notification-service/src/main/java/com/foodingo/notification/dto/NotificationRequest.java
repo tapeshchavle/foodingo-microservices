@@ -1,0 +1,44 @@
+package com.foodingo.notification.dto;
+
+import java.time.LocalDateTime;
+
+import com.foodingo.notification.enums.NotificationType;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class NotificationRequest {
+    
+    @NotBlank(message = "User ID is required")
+    private String userId;
+    
+    @NotBlank(message = "Title is required")
+    private String title;
+    
+    @NotBlank(message = "Message is required")
+    private String message;
+    
+    @NotNull(message = "Notification type is required")
+    private NotificationType type;
+    
+    private String orderId;
+    
+    private String restaurantId;
+    
+    private String imageUrl;
+    
+    private String actionUrl;
+    
+    private String metadata;
+    
+    private LocalDateTime scheduledAt;
+}
+

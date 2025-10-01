@@ -1,0 +1,18 @@
+package com.foodingo.notification.enums;
+
+public enum NotificationType {
+    ORDER_CONFIRMED,
+    ORDER_PREPARING,
+    ORDER_READY,
+    ORDER_OUT_FOR_DELIVERY,
+    ORDER_DELIVERED,
+    ORDER_CANCELLED,
+    PAYMENT_SUCCESSFUL,
+    PAYMENT_FAILED,
+    REVIEW_REQUEST,
+    PROMOTION,
+    SYSTEM_UPDATE,
+    RESTAURANT_UPDATE,
+    DELIVERY_UPDATE
+}
+

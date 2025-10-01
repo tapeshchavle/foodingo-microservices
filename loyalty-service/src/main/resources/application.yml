@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: loyalty-service
+  
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/foodingo_loyalty}
+      auto-index-creation: true
+  
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+
+server:
+  port: ${SERVER_PORT:8087}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+
+loyalty:
+  points:
+    earn-rate: 1.0  # Points per rupee spent
+    redeem-rate: 0.01  # Rupees per point
+    min-redeem: 100  # Minimum points to redeem
+    max-redeem-percentage: 50  # Max % of order that can be paid with points
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_URL:http://localhost:9411/api/v2/spans}
+
+logging:
+  level:
+    root: INFO
+    com.foodingo.loyalty: DEBUG
+
